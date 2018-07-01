@@ -70,11 +70,8 @@ $(document).ready(() => {
   // Var to hold Contact to delete when editing
   var contactToDelete = '';
  
-  // Form Submit Event
-  contactForm.submit((event) => {
-    // Prevent default submit behavior to stay on page
-    event.preventDefault();
- 
+  // Submit Button Click Event
+  submitBtn.click(() => {
     // Check for valid input
     if (validateInput(firstName, lastName, emailAddress, msg)) {
       // Create new Contact and push to Array
@@ -115,7 +112,7 @@ $(document).ready(() => {
     contactToDelete = '';
  
     // Save new Contact
-    contactForm.submit();
+    submitBtn.click();
  
     cancelBtn.click();
   });
