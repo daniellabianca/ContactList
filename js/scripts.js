@@ -50,7 +50,7 @@ function toggleButtons() {
  
 // Execute only when document is ready (DOM loaded)
 $(document).ready(() => {
-  // Array to hold Contact Objects (Object Literals)
+  // Array to hold Contact Objects (Objects)
   var contacts = [];
  
   // Vars to hold HTML Elements
@@ -76,7 +76,7 @@ $(document).ready(() => {
     if (validateInput(firstName, lastName, emailAddress, msg)) {
       // Create new Contact and push to Array
       // createContact() function is in contact.js
-      contacts.push(createContact(firstName.val(), lastName.val(), emailAddress.val()));
+      contacts.push(new Contact(firstName.val(), lastName.val(), emailAddress.val()));
      
       // Display Contacts on page
       // displayContacts() function is in contact.js

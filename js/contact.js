@@ -6,42 +6,34 @@
 // Force Strict Mode
 "use strict";
  
+
 /*
- * This function is called from contactForm.submit() in scripts.js
- * it creates a Contact Object Literal and returns it to the calling funct
- *
+ * This is the Constructor function for creating a Contact
+ * 
  * @param firstName    - Contact's First Name
  * @param lastName     - Contact's Last Name
  * @param emailAddress - Contact's Email address
- *
- * @return contact    - New Contact Object Lit
- */
-function createContact(firstName, lastName, emailAddress) {
-  // Contact Object Literal
-  var contact = {
-    // Properties / vars
-    "firstName"    : firstName,
-    "lastName"     : lastName,
-    "emailAddress" : emailAddress,
+ */ 
+function Contact(firstName, lastName, emailAddress) {
+  // Properties 
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.emailAddress = emailAddress;
 
-    // Behaviors / Functions
-    "getName": () => {
-        return `${firstName} ${lastName}`;
-    },
-    "getEmailAddress": () => {
-        return emailAddress;
-    }
+  // Behaviors
+  this.getName = () => {
+	  return `${this.firstName} ${this.lastName}`;
   };
- 
-  // Return the new Contact
-  return contact;
+  this.getEmailAddress = () => {
+    return this.emailAddress;
+  }
 }
- 
+
 /*
  * This function displays Contacts on the page
  * it is called from contactForm.submit() in scripts.js and deleteContact() below
  *
- * @param contacts      - Array of Contact Object Lits
+ * @param contacts      - Array of Contact Objects
  * @param contactsList  - HTML <UL> Element to append dynamically created <LI> Elements
  */
 function displayContacts(contacts, contactsList) {
@@ -49,7 +41,7 @@ function displayContacts(contacts, contactsList) {
   contactsList.html('');
 
   // Traverse Contact Object Literals in contacts Array and display on page
-  $.each(contacts, function(index, contact) {
+  $.each(contacts, (index, contact) => {
     contactsList.append(
       $('<li>')
       .attr('class', 'list-group-item  list-group-item-dark text-right')
@@ -81,7 +73,7 @@ function displayContacts(contacts, contactsList) {
  * it is called from $(document).on('click' ...) and editBtn.click() in scripts.js
  *
  * @param emailAddress      - Email Address of Contact to delete
- * @param contacts          - Array of Contact Object Lits
+ * @param contacts          - Array of Contact Objects
  * @param contactsList      - HTML UL Element to append dynamically created LI Elements to
  *
  * @return filteredContacts - New contacts Array without deleted Contact
