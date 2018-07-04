@@ -75,7 +75,7 @@ $(document).ready(() => {
     // Check for valid input
     if (validateInput(firstName, lastName, emailAddress, msg)) {
       // Create new Contact and push to Array
-      // createContact() function is in contact.js
+      // The Contact() Constructor function is in contact.js
       contacts.push(new Contact(firstName.val(), lastName.val(), emailAddress.val()));
      
       // Display Contacts on page

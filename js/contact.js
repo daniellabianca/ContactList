@@ -6,7 +6,6 @@
 // Force Strict Mode
 "use strict";
  
-
 /*
  * This is the Constructor function for creating a Contact
  * 
